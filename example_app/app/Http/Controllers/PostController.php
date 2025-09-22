@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::all();
-        dump($posts);
+        $posts = Post::where('is_published',0)->get();
+        foreach ($posts as $post) {
+            dump($post->title);
+        }
+        dump('end');
     }
 }
