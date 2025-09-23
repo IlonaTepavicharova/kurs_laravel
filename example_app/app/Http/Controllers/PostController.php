@@ -54,5 +54,45 @@ class PostController extends Controller
         $post->restore();
         dd('restored');
     }
+    // firstOrCreate
 
+    public function firstOrCreate(){
+
+        $anotherPost = [
+            'title' => 'some post title',
+            'content' => 'some content',
+            'image' => 'imagination.jpg',
+            'likes' => 2000,
+            'is_published' => 1,
+        ];
+        $post = Post::firstOrCreate([
+            'title' => 'some post title',
+        ],
+            [
+            'title' => 'some post title',
+            'content' => 'some content',
+            'image' => 'imagination.jpg',
+            'likes' => 2000,
+            'is_published' => 1,
+        ]);
+        dump($post->content);
+        dd('firstOrCreate');
+    }
+
+    public function updateOrCreate(){
+        $anotherPost = [
+            'title' => 'update some post title',
+            'content' => 'update1 some content',
+            'image' => 'new_imagination.jpg',
+            'likes' => 200,
+            'is_published' => 0,
+        ];
+        $post = Post::updateOrCreate([
+            'title' => 'update some post title',
+        ],
+            $anotherPost
+        );
+
+        dd('updateOrCreate');
+    }
 }
