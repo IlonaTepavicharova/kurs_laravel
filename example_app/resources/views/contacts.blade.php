@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
 <div>
-    Это страница постов)))
+    Это страница контактов)))
 </div>
 @endsection
